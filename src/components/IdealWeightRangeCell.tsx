@@ -6,8 +6,16 @@ const IdealWeightRangeCell = () => {
   const data = healthMetrics.idealWeightRange;
 
   return (
-    <GridCellWrapper cellClass="cell-weight" title="Ideal Weight Range">
-      <div className="flex flex-col gap-4 justify-start">
+    <GridCellWrapper
+      cellClass="cell-weight"
+      title="Ideal Weight Range"
+      titleId="ideal-weight-range-title"
+    >
+      <p className="sr-only">
+        Your ideal weight range is between {data.min} and {data.max} kilograms,
+        based on a normal BMI range.
+      </p>
+      <div className="flex flex-col gap-4 justify-start" aria-hidden="true">
         <p>
           <span className="text-5xl font-medium">{data.min}</span>
           <span className="text-xl">kg</span>

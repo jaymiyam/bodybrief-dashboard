@@ -46,13 +46,17 @@ const BMICell = () => {
   };
 
   return (
-    <GridCellWrapper cellClass="cell-bmi" title="BMI">
+    <GridCellWrapper cellClass="cell-bmi" title="BMI" titleId="bmi-title">
       <div className="relative flex flex-col justify-center items-center">
         <BMIHalfPieChart />
-        <p className="absolute text-5xl font-medium bottom-0 left-1/2 transform -translate-x-1/2">
+        <p
+          aria-label={`Body mass index is ${bmi}`}
+          className="absolute text-5xl font-medium bottom-0 left-1/2 transform -translate-x-1/2"
+        >
           {bmi}
         </p>
       </div>
+      <span className="sr-only">BMI category</span>
       <p
         className={`mt-2 text-center font-medium rounded-full p-0.5 ${dataMapping[category].color}`}
       >

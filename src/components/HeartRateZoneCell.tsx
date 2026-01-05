@@ -11,6 +11,7 @@ const HeartRateZoneCell = () => {
     <GridCellWrapper
       cellClass="cell-hrz flex flex-col"
       title="Heart Rate Zones (in bpm)"
+      titleId="heart-rate-zones-title"
     >
       <div className="h-full flex">
         <HeartRateZonesBarChart />

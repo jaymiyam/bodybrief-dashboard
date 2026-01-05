@@ -22,7 +22,11 @@ const UserFormCell = () => {
   };
 
   return (
-    <GridCellWrapper cellClass="cell-form" title="Basic Information">
+    <GridCellWrapper
+      cellClass="cell-form"
+      title="Basic Information"
+      titleId="basic-information-title"
+    >
       <form
         onSubmit={handleSubmit}
         className="flex flex-wrap gap-3 items-center justify-start"
@@ -45,10 +49,14 @@ const UserFormCell = () => {
         </FormInputWrapper>
         <FormInputWrapper>
           <label htmlFor="weight">Weight(kg):</label>
+          <span id="weight-unit" className="sr-only">
+            in kilograms
+          </span>
           <input
             type="number"
             name="weight"
             id="weight"
+            aria-describedby="weight-unit"
             min={0}
             max={200}
             required
@@ -61,10 +69,14 @@ const UserFormCell = () => {
         </FormInputWrapper>
         <FormInputWrapper>
           <label htmlFor="height">Height(cm):</label>
+          <span id="height-unit" className="sr-only">
+            in centimeters
+          </span>
           <input
             type="number"
             name="height"
             id="height"
+            aria-describedby="height-unit"
             min={100}
             max={250}
             required
@@ -117,29 +129,39 @@ const UserFormCell = () => {
           </select>
         </FormInputWrapper>
         <FormInputWrapper>
-          <legend>Gender:</legend>
-          <input
-            type="radio"
-            name="gender"
-            id="female"
-            value="female"
-            required
-            checked={formValues.gender === 'female'}
-            onChange={() => setFormValues({ ...formValues, gender: 'female' })}
-            className="bg-white px-2 py-1 rounded-lg border border-indigo-200"
-          />
-          <label htmlFor="female">F</label>
-          <input
-            type="radio"
-            name="gender"
-            id="male"
-            value="male"
-            required
-            checked={formValues.gender === 'male'}
-            onChange={() => setFormValues({ ...formValues, gender: 'male' })}
-            className="bg-white px-2 py-1 rounded-lg border border-indigo-200"
-          />
-          <label htmlFor="male">M</label>
+          <fieldset className="contents">
+            <legend>Gender:</legend>
+            <div>
+              <input
+                type="radio"
+                name="gender"
+                id="female"
+                value="female"
+                required
+                checked={formValues.gender === 'female'}
+                onChange={() =>
+                  setFormValues({ ...formValues, gender: 'female' })
+                }
+                className="bg-white px-2 py-1 mr-0.5 rounded-lg border border-indigo-200"
+              />
+              <label htmlFor="female">F</label>
+            </div>
+            <div>
+              <input
+                type="radio"
+                name="gender"
+                id="male"
+                value="male"
+                required
+                checked={formValues.gender === 'male'}
+                onChange={() =>
+                  setFormValues({ ...formValues, gender: 'male' })
+                }
+                className="bg-white px-2 py-1 mr-0.5 rounded-lg border border-indigo-200"
+              />
+              <label htmlFor="male">M</label>
+            </div>
+          </fieldset>
         </FormInputWrapper>
         <button
           type="submit"

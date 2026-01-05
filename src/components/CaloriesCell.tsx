@@ -10,7 +10,13 @@ const CaloriesCell = () => {
     <GridCellWrapper
       cellClass="cell-calories flex flex-col"
       title="Calories Overview (in kcal)"
+      titleId="calories-title"
     >
+      {/* text summary for screen reader */}
+      <p className="sr-only">
+        Total daily energy expenditure is {calories.TDEE} kilocalories.
+        Recommended daily intake is {calories.intake} kilocalories.
+      </p>
       <div className="grid grid-cols-2 items-center justify-center">
         <div className="text-center text-theme-red justify-self-end">
           <h3 className="text-2xl md:text-3xl font-bold">TDEE</h3>
