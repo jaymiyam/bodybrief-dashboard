@@ -1,0 +1,96 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-theme-blue: #879def;
+  --color-theme-cyan: #98fafa;
+  --color-theme-green: #19faae;
+  --color-theme-yellow: #fdfd88;
+  --color-theme-orange: #fcd08f;
+  --color-theme-red: #fa9b88;
+  --color-off-black: #212223;
+  --color-off-white: #fcfcfc;
+
+  --font-main: 'Plus Jakarta Sans', 'sans-serif';
+}
+
+.dashboard-grid {
+  width: 100%;
+  display: grid;
+  gap: 24px;
+  grid-template-areas:
+    'form form form bmi calories calories'
+    'macro hrz hrz hrz calories calories'
+    'macro hrz hrz hrz weight weight';
+}
+
+@media (max-width: 1080px) {
+  .dashboard-grid {
+    grid-template-areas:
+      'form form bmi'
+      'macro hrz hrz'
+      'macro hrz hrz'
+      'calories calories weight'
+      'calories calories weight';
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard-grid {
+    grid-template-areas:
+      'form'
+      'bmi'
+      'hrz'
+      'calories'
+      'macro'
+      'weight';
+  }
+}
+
+.cell {
+  background-color: var(--color-off-white);
+  border: 1px solid var(--color-theme-blue);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.cell-form {
+  grid-area: form;
+}
+
+.cell-bmi {
+  grid-area: bmi;
+}
+
+.cell-calories {
+  grid-area: calories;
+}
+
+.cell-macro {
+  grid-area: macro;
+}
+
+.cell-hrz {
+  grid-area: hrz;
+}
+
+.cell-weight {
+  grid-area: weight;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 150ms forwards ease-out;
+}
+
+.pdf-export * {
+  color: inherit !important;
+  background-color: inherit !important;
+}
