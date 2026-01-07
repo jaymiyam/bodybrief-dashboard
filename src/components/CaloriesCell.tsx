@@ -17,15 +17,17 @@ const CaloriesCell = () => {
         Total daily energy expenditure is {calories.TDEE} kilocalories.
         Recommended daily intake is {calories.intake} kilocalories.
       </p>
-      <div className="grid grid-cols-2 items-center justify-center">
+      <div className="grid grid-cols-2 gap-4 items-center justify-center">
         <div className="text-center text-theme-red justify-self-end">
           <h3 className="text-2xl md:text-3xl font-bold">TDEE</h3>
-          <p className="leading-tight">Total Daily Energy Expenditure</p>
+          <p className="leading-tight text-balance">
+            Total Daily <br /> Energy Expenditure
+          </p>
           <p className="mt-2 text-4xl md:text-5xl font-medium tracking-tighter">
             {calories.TDEE.toLocaleString()}
           </p>
         </div>
-        <div className="text-center text-theme-blue">
+        <div className="text-center text-theme-blue justify-self-start">
           <h3 className="text-2xl md:text-3xl font-bold">Intake</h3>
           <p className=" leading-tight">
             Recommended <br /> Daily Intake

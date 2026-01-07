@@ -35,7 +35,7 @@ const AboutDialog = ({ open, onCloseClick }: AboutDialogProps) => {
               <p className="text-theme-blue">
                 <strong>IMPORTANT: </strong>
                 Download as PDF function is recommended to be used on browser
-                width od <strong>1200px or above</strong> for optimal
+                width of <strong>1200px or above</strong> for optimal
                 appearance.
               </p>
             </section>

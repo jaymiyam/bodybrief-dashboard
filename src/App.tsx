@@ -12,6 +12,15 @@ const App = () => {
   const dashboardRef = useRef<HTMLDivElement | null>(null);
 
   const handleExportPDF = async () => {
+    const isFirefox = navigator.userAgent.includes('Firefox');
+
+    if (isFirefox) {
+      alert(
+        'Sorry, PDF export is not supported in Firefox. Please use Google Chrome.'
+      );
+      return;
+    }
+
     if (!dashboardRef.current) return;
 
     // capture the dashboard DOM element to a canvas

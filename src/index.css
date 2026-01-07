@@ -1,5 +1,13 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  src: url('/fonts/PlusJakartaSans-VariableFont_wght.ttf') format('truetype');
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
 @theme {
   --color-theme-blue: #879def;
   --color-theme-cyan: #98fafa;
@@ -88,9 +96,4 @@
 
 .animate-fade-in {
   animation: fade-in 150ms forwards ease-out;
-}
-
-.pdf-export * {
-  color: inherit !important;
-  background-color: inherit !important;
 }
