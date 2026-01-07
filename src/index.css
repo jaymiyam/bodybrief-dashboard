@@ -21,6 +21,7 @@
   --font-main: 'Plus Jakarta Sans', 'sans-serif';
 }
 
+/* custom class for main dashboard layout */
 .dashboard-grid {
   width: 100%;
   display: grid;
@@ -54,37 +55,27 @@
   }
 }
 
-.cell {
-  background-color: var(--color-off-white);
-  border: 1px solid var(--color-theme-blue);
-  border-radius: 12px;
-  padding: 1.5rem;
-}
-
+/* classes for grid areas assignment */
 .cell-form {
   grid-area: form;
 }
-
 .cell-bmi {
   grid-area: bmi;
 }
-
 .cell-calories {
   grid-area: calories;
 }
-
 .cell-macro {
   grid-area: macro;
 }
-
 .cell-hrz {
   grid-area: hrz;
 }
-
 .cell-weight {
   grid-area: weight;
 }
 
+/* fade-in animatino for modal */
 @keyframes fade-in {
   from {
     opacity: 0;

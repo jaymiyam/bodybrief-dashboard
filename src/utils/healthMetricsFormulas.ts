@@ -16,7 +16,7 @@ function calculateBMI(weight: number, height: number): number {
 }
 
 function calculateIdealWeightRange(height: number): IdealWeightRange {
-  // BMI = weight (kg) / (height in meters)²
+  // weight (kg) = BMI * (height in meters)²
   const lowerBoundBMI = 18.5;
   const upperBoundBMI = 24.9;
 

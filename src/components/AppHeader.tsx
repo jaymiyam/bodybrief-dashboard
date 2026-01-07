@@ -9,6 +9,7 @@ const AppHeader = ({ onAboutClick, onExportClick }: AppHeaderProps) => {
   return (
     <header className="py-4 mt-4 flex flex-col sm:flex-row gap-y-2 md:gap-y-0 sm:items-center justify-between">
       <div className="flex flex-col md:flex-row items-baseline gap-2">
+        {/* title and tagline */}
         <h1 className="text-theme-blue font-bold text-3xl md:text-4xl">
           BodyBrief
         </h1>
@@ -17,6 +18,7 @@ const AppHeader = ({ onAboutClick, onExportClick }: AppHeaderProps) => {
         </p>
       </div>
       <div className="flex items-center gap-2 justify-start">
+        {/* toggle about modal button */}
         <button
           onClick={onAboutClick}
           className="cursor-pointer font-medium text-theme-blue hover:text-off-black transition"
@@ -24,6 +26,7 @@ const AppHeader = ({ onAboutClick, onExportClick }: AppHeaderProps) => {
           <span className="sr-only">about this project</span>
           <Icon icon="material-symbols:info-outline" width="28" height="28" />
         </button>
+        {/* download as PDF button */}
         <button
           onClick={onExportClick}
           type="button"

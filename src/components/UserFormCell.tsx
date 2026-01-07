@@ -31,6 +31,7 @@ const UserFormCell = () => {
         onSubmit={handleSubmit}
         className="flex flex-wrap gap-3 items-center justify-start"
       >
+        {/* age input */}
         <FormInputWrapper>
           <label htmlFor="age">Age:</label>
           <input
@@ -47,6 +48,7 @@ const UserFormCell = () => {
             className="bg-white px-2 py-1 rounded-lg border border-indigo-200"
           />
         </FormInputWrapper>
+        {/* weight input */}
         <FormInputWrapper>
           <label htmlFor="weight">Weight(kg):</label>
           <span id="weight-unit" className="sr-only">
@@ -67,6 +69,7 @@ const UserFormCell = () => {
             className="bg-white px-2 py-1 rounded-lg border border-indigo-200"
           />
         </FormInputWrapper>
+        {/* height input */}
         <FormInputWrapper>
           <label htmlFor="height">Height(cm):</label>
           <span id="height-unit" className="sr-only">
@@ -87,7 +90,7 @@ const UserFormCell = () => {
             className="bg-white px-2 py-1 rounded-lg border border-indigo-200"
           />
         </FormInputWrapper>
-
+        {/* activity level input */}
         <FormInputWrapper>
           <label htmlFor="activity-level">Activity Level:</label>
           <select
@@ -109,6 +112,7 @@ const UserFormCell = () => {
             <option value="1.9">Extra</option>
           </select>
         </FormInputWrapper>
+        {/* fitness goal input */}
         <FormInputWrapper>
           <label htmlFor="fitness-goal">Fitness Goal:</label>
           <select
@@ -128,6 +132,7 @@ const UserFormCell = () => {
             <option value="bulk">Bulk up</option>
           </select>
         </FormInputWrapper>
+        {/* gender input */}
         <FormInputWrapper>
           <fieldset className="contents">
             <legend>Gender:</legend>
@@ -163,6 +168,7 @@ const UserFormCell = () => {
             </div>
           </fieldset>
         </FormInputWrapper>
+        {/* submit form button */}
         <button
           type="submit"
           className="cursor-pointer px-4 py-2 text-off-black text-base font-medium bg-white border border-theme-blue rounded-xl shadow-md shadow-theme-blue/30 hover:border-white hover:text-white hover:bg-theme-blue transition-all"

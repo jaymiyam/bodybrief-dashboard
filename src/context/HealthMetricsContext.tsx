@@ -30,6 +30,7 @@ export const HealthMetricsContextProvider = ({
 }: {
   children: ReactNode;
 }) => {
+  // default data for initial display of dashboard data
   const initialHealthMetrics = calculateAllMetrics({
     weight: 80,
     height: 175,

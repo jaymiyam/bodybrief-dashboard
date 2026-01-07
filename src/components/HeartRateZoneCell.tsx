@@ -13,7 +13,7 @@ const HeartRateZoneCell = () => {
       title="Heart Rate Zones (in bpm)"
       titleId="heart-rate-zones-title"
     >
-      <div className="h-full flex">
+      <div className="h-full flex gap-2">
         <HeartRateZonesBarChart />
         <HeartRateZoneData hrz={hrz} />
       </div>

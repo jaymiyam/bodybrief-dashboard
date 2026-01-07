@@ -4,6 +4,12 @@ export type IdealWeightRange = {
   min: number;
   max: number;
 };
+export type BMICategory =
+  | 'underweight'
+  | 'normal'
+  | 'overweight'
+  | 'obese'
+  | 'morbidlyObese';
 export type Calories = {
   BMR: number;
   TDEE: number;

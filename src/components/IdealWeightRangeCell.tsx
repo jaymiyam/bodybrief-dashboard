@@ -11,6 +11,7 @@ const IdealWeightRangeCell = () => {
       title="Ideal Weight Range"
       titleId="ideal-weight-range-title"
     >
+      {/* text summary for screen reader */}
       <p className="sr-only">
         Your ideal weight range is between {data.min} and {data.max} kilograms,
         based on a normal BMI range.

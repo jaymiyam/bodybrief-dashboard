@@ -5,14 +5,16 @@ import { themeColors } from '../../utils/themeColors';
 
 const MacronutrientsPieChart = () => {
   const { healthMetrics } = useHealthMetricsContext();
+  const macronutrients = healthMetrics.macronutrients;
 
-  const data = Array.from(Object.keys(healthMetrics.macronutrients), (el) => {
+  const colors = [themeColors.green, themeColors.orange, themeColors.yellow];
+  const data = Array.from(Object.keys(macronutrients), (el, i) => {
     return {
       name: el,
-      value: healthMetrics.macronutrients[el as keyof MacronutrientsRatio],
+      value: macronutrients[el as keyof MacronutrientsRatio],
+      color: colors[i],
     };
   });
-  const colors = [themeColors.green, themeColors.orange, themeColors.yellow];
   return (
     <PieChart
       style={{
@@ -32,8 +34,8 @@ const MacronutrientsPieChart = () => {
         // label={renderCustomizedLabel}
         labelLine={false}
       >
-        {data.map((entry, index) => {
-          return <Cell key={`cell-${entry.name}`} fill={colors[index]} />;
+        {data.map((entry) => {
+          return <Cell key={`cell-${entry.name}`} fill={entry.color} />;
         })}
       </Pie>
     </PieChart>

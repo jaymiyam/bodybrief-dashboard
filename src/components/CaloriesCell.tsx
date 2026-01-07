@@ -17,6 +17,7 @@ const CaloriesCell = () => {
         Total daily energy expenditure is {calories.TDEE} kilocalories.
         Recommended daily intake is {calories.intake} kilocalories.
       </p>
+      {/* text data content */}
       <div className="grid grid-cols-2 gap-4 items-center justify-center">
         <div className="text-center text-theme-red justify-self-end">
           <h3 className="text-2xl md:text-3xl font-bold">TDEE</h3>
@@ -37,6 +38,7 @@ const CaloriesCell = () => {
           </p>
         </div>
       </div>
+      {/* chart */}
       <div className="h-full grid place-items-center">
         <CaloriesBarChart />
       </div>

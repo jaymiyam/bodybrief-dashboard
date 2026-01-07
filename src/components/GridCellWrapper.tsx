@@ -18,10 +18,11 @@ const GridCellWrapper = ({
       aria-labelledby={titleId}
       className={` bg-off-white border border-theme-blue rounded-xl p-4 shadow-md shadow-theme-blue/30 | ${cellClass}`}
     >
+      {/* cell title */}
       <h2 id={titleId} className="font-bold text-xl mb-4">
         {title}
       </h2>
-
+      {/* cell content */}
       {children}
     </section>
   );

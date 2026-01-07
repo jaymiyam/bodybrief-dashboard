@@ -1,21 +1,15 @@
 import GridCellWrapper from './GridCellWrapper';
 import BMIHalfPieChart from './charts/BMIHalfPieChart';
 import { useHealthMetricsContext } from '../context/HealthMetricsContext';
+import type { BMICategory } from '../types/healthMetricsTypes';
 
-type BMICategory =
-  | 'underweight'
-  | 'normal'
-  | 'overweight'
-  | 'obese'
-  | 'morbidlyObese';
-
-function getBMICategory(bmi: number): BMICategory {
+const getBMICategory = (bmi: number): BMICategory => {
   if (bmi < 18.5) return 'underweight';
   if (bmi < 25) return 'normal';
   if (bmi < 30) return 'overweight';
   if (bmi < 35) return 'obese';
   return 'morbidlyObese';
-}
+};
 
 const BMICell = () => {
   const { healthMetrics } = useHealthMetricsContext();
@@ -48,7 +42,9 @@ const BMICell = () => {
   return (
     <GridCellWrapper cellClass="cell-bmi" title="BMI" titleId="bmi-title">
       <div className="relative flex flex-col justify-center items-center">
-        <BMIHalfPieChart />
+        {/* chart */}
+        <BMIHalfPieChart category={category} />
+        {/* text data content */}
         <p
           aria-label={`Body mass index is ${bmi}`}
           className="absolute text-5xl font-medium bottom-0 left-1/2 transform -translate-x-1/2"

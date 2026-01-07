@@ -12,6 +12,7 @@ const App = () => {
   const dashboardRef = useRef<HTMLDivElement | null>(null);
 
   const handleExportPDF = async () => {
+    // guard against Firefox PDF export CSSfonts error
     const isFirefox = navigator.userAgent.includes('Firefox');
 
     if (isFirefox) {
@@ -21,6 +22,7 @@ const App = () => {
       return;
     }
 
+    // guard against non-existing dashboard DOM element
     if (!dashboardRef.current) return;
 
     // capture the dashboard DOM element to a canvas
@@ -39,7 +41,7 @@ const App = () => {
     const pdfWidth = pdf.internal.pageSize.getWidth();
     const pdfHeight = pdf.internal.pageSize.getHeight();
 
-    // Maintain aspect ratio
+    // Maintain aspect ratio of image
     const img = new Image();
     img.src = dataUrl;
     await img.decode();

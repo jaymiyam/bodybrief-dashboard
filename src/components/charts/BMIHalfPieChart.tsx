@@ -1,38 +1,37 @@
-import { useHealthMetricsContext } from '../../context/HealthMetricsContext';
 import { Pie, PieChart } from 'recharts';
 import { themeColors } from '../../utils/themeColors';
 
 const bmiRanges = [
   {
-    key: 'underweight',
+    category: 'underweight',
     label: 'Underweight',
     min: 12,
     max: 18.4,
     color: themeColors.cyan,
   },
   {
-    key: 'normal',
+    category: 'normal',
     label: 'Normal',
     min: 18.5,
     max: 24.9,
     color: themeColors.green,
   },
   {
-    key: 'overweight',
+    category: 'overweight',
     label: 'Overweight',
     min: 25,
     max: 29.9,
     color: themeColors.yellow,
   },
   {
-    key: 'obese',
+    category: 'obese',
     label: 'Obese',
     min: 30,
     max: 39.9,
     color: themeColors.orange,
   },
   {
-    key: 'morbid',
+    category: 'morbid',
     label: 'Morbidly Obese',
     min: 40,
     max: 50,
@@ -40,25 +39,17 @@ const bmiRanges = [
   },
 ];
 
-const getBMICategoryKey = (bmi: number) =>
-  bmiRanges.find((r) => bmi >= r.min && bmi <= r.max)?.key;
-
-const buildPieData = (bmi: number) => {
-  const activeKey = getBMICategoryKey(bmi);
-
+const buildPieData = (category: string) => {
   return bmiRanges.map((range) => ({
     name: range.label,
     value: range.max - range.min,
     fill: range.color,
-    opacity: range.key === activeKey ? 1 : 0.3,
+    opacity: range.category === category ? 1 : 0.3,
   }));
 };
 
-const BMIHalfPieChart = () => {
-  const { healthMetrics } = useHealthMetricsContext();
-  const bmi = healthMetrics.BMI;
-
-  const data = buildPieData(bmi);
+const BMIHalfPieChart = ({ category }: { category: string }) => {
+  const data = buildPieData(category);
 
   return (
     <PieChart width={210} height={120} responsive>

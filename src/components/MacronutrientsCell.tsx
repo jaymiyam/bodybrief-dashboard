@@ -11,6 +11,7 @@ const MacronutrientsCell = () => {
       title="Recommended Macronutrients"
       titleId="macronutrients-title"
     >
+      {/* text summary for screen reader */}
       <p className="sr-only">
         Recommended daily macronutrient distribution is
         {macronutrients.protein * 100}% protein,
@@ -18,7 +19,9 @@ const MacronutrientsCell = () => {
         {macronutrients.fat * 100}% fat.
       </p>
       <div className="mx-auto flex flex-col justify-center items-center">
+        {/* chart */}
         <MacronutrientsPieChart />
+        {/* text data content */}
         <table className="max-w-56 mx-auto table-fixed w-full text-center border-separate border-spacing-1">
           <caption className="sr-only">
             Macronutrient percentage breakdown
