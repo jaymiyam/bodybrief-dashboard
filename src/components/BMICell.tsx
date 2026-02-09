@@ -1,15 +1,7 @@
 import GridCellWrapper from './GridCellWrapper';
 import BMIHalfPieChart from './charts/BMIHalfPieChart';
 import { useHealthMetricsContext } from '../context/HealthMetricsContext';
-import type { BMICategory } from '../types/healthMetricsTypes';
-
-const getBMICategory = (bmi: number): BMICategory => {
-  if (bmi < 18.5) return 'underweight';
-  if (bmi < 25) return 'normal';
-  if (bmi < 30) return 'overweight';
-  if (bmi < 35) return 'obese';
-  return 'morbidlyObese';
-};
+import { getBMICategory } from '../utils/healthMetricsFormulas';
 
 const BMICell = () => {
   const { healthMetrics } = useHealthMetricsContext();

@@ -3,19 +3,19 @@ import type {
   Calories,
   HeartRateZones,
   MacronutrientsRatio,
-  Gender,
   FitnessGoal,
   FormInputs,
+  BMICategory,
 } from '../types/healthMetricsTypes';
 
-function calculateBMI(weight: number, height: number): number {
+export function calculateBMI(weight: number, height: number): number {
   // BMI = weight (kg) / (height in meters)²
   const BMI = weight / Math.pow(height / 100, 2);
 
   return Math.round(BMI * 10) / 10;
 }
 
-function calculateIdealWeightRange(height: number): IdealWeightRange {
+export function calculateIdealWeightRange(height: number): IdealWeightRange {
   // weight (kg) = BMI * (height in meters)²
   const lowerBoundBMI = 18.5;
   const upperBoundBMI = 24.9;
@@ -26,14 +26,14 @@ function calculateIdealWeightRange(height: number): IdealWeightRange {
   };
 }
 
-function calculateCalories(
-  weight: number,
-  height: number,
-  age: number,
-  gender: Gender,
-  activityLevel: number,
-  fitnessGoal: FitnessGoal
-): Calories {
+export function calculateCalories({
+  weight,
+  height,
+  age,
+  gender,
+  activityLevel,
+  fitnessGoal,
+}: FormInputs): Calories {
   // Mifflin–St Jeor equation
   let BMR;
   if (gender === 'female') {
@@ -61,7 +61,7 @@ function calculateCalories(
   };
 }
 
-function calculateHeartRateZones(age: number): HeartRateZones {
+export function calculateHeartRateZones(age: number): HeartRateZones {
   // Karvonen method
   const maxHR = 220 - age;
   return {
@@ -84,6 +84,14 @@ export function transformHRZforChart(zones: HeartRateZones) {
       zone5: [zones.zone4.max, zones.zone5.max],
     },
   ];
+}
+
+export function getBMICategory(bmi: number): BMICategory {
+  if (bmi < 18.5) return 'underweight';
+  if (bmi < 25) return 'normal';
+  if (bmi < 30) return 'overweight';
+  if (bmi < 35) return 'obese';
+  return 'morbidlyObese';
 }
 
 function getMacronutrients(fitnessGoal: FitnessGoal): MacronutrientsRatio {
@@ -109,17 +117,10 @@ function getMacronutrients(fitnessGoal: FitnessGoal): MacronutrientsRatio {
 }
 
 export function calculateAllMetrics(inputs: FormInputs) {
-  const { weight, height, age, gender, activityLevel, fitnessGoal } = inputs;
+  const { weight, height, age, fitnessGoal } = inputs;
   const BMI = calculateBMI(weight, height);
   const idealWeightRange = calculateIdealWeightRange(height);
-  const calories = calculateCalories(
-    weight,
-    height,
-    age,
-    gender,
-    activityLevel,
-    fitnessGoal
-  );
+  const calories = calculateCalories(inputs);
   const heartRateZones = calculateHeartRateZones(age);
   const macronutrients = getMacronutrients(fitnessGoal);
 
